@@ -17,6 +17,21 @@ using System.Web;
             private string _foto ="";
 
 
+            
+            public Preguntas (int pidPregunta, int pidCategoria, int pidDificultad, string penunciado, string pfoto){
+
+                _idPregunta = pidPregunta;
+                _idCategoria = pidCategoria;
+                _idDificultad = pidDificultad;
+                _enunciado = penunciado;
+                _foto = pfoto;
+
+
+             }
+
+
+
+
 
             public int IdPregunta{
                 

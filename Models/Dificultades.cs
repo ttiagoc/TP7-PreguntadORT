@@ -14,6 +14,16 @@ using System.Web;
             private string _nombre ="";
 
 
+            public Dificultades (int pidDificultad, string pnombre){
+
+                _idDificultad = pidDificultad;
+                _nombre = pnombre;
+                
+             }
+
+
+
+
             public int IdCategoria{
                 
               get{return _idDificultad;}

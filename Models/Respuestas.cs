@@ -19,6 +19,20 @@ using System.Web;
 
 
 
+
+            public Respuestas (int pidRespuesta, int pidPregunta, int popcion, string pcontenido, bool pcorrecta, string pfoto){
+
+                _idRespuesta = pidRespuesta;
+                _idPregunta = pidPregunta;
+                _opcion = popcion;
+                _contenido = pcontenido;
+                _correcta = pcorrecta;
+                _foto = pfoto;
+
+
+             }
+
+
              public int IdRespuesta{
                 
               get{return _idRespuesta;}
