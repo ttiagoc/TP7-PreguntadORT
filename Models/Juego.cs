@@ -8,7 +8,7 @@ using System.Web;
 
   {
 
-    public class Juego{
+    public static class Juego{
 
        private static string _username = "";
        private static int _puntajeActual;
@@ -17,35 +17,74 @@ using System.Web;
        private static List<Respuestas> _respuestas;
 
 
-         public string Username{
+         public static string Username{
                 
               get{return _username;}
               
             }
 
-         public int PuntajeActual{
+         public static int PuntajeActual{
                 
               get{return _puntajeActual;}
              
             }
 
-         public int CantidadPreguntasCorrectas{
+         public static int CantidadPreguntasCorrectas{
                 
               get{return _cantidadPreguntasCorrectas;}
              
             }
 
-        public List<Preguntas> Preguntas{
+        public static List<Preguntas> Preguntas{
                 
               get{return _preguntas;}
              
             }
 
-        public List<Respuestas> Respuestas{
+        public static List<Respuestas> Respuestas{
                 
               get{return _respuestas;}
              
             }
+
+
+        public static void InicializarJuego(){
+
+           _username = "";
+          _puntajeActual = 0;
+          _cantidadPreguntasCorrectas = 0;
+          _preguntas.Clear();
+          _respuestas.Clear();
+
+        }
+
+        public static List<Categorias> ObtenerCategorias(){
+          return BD.ListarCategorias();
+        }
+
+        public static List<Dificultades> ObtenerDificultades(){
+          return BD.ObtenerDificultades();
+        }
+
+        public static void CargarPartida(string username, int dificultad, int categoria){
+
+         _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
+        // _respuestas = BD.ObtenerRespuestas(_preguntas);
+
+        }
+
+         
+
+        public static Preguntas ObtenerProximaPregunta(){
+
+          Preguntas random = EnumerableExtension.PickRandom<Preguntas>(_preguntas);
+
+        
+
+          return random;
+
+
+        }
 
 
     }
