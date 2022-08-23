@@ -69,7 +69,7 @@ using System.Web;
         public static void CargarPartida(string username, int dificultad, int categoria){
 
          _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
-        // _respuestas = BD.ObtenerRespuestas(_preguntas);
+         _respuestas = BD.ObtenerRespuestas(_preguntas);
 
         }
 
@@ -77,14 +77,48 @@ using System.Web;
 
         public static Preguntas ObtenerProximaPregunta(){
 
-          Preguntas random = EnumerableExtension.PickRandom<Preguntas>(_preguntas);
+          int cant = _preguntas.Count();
+          Random random = new Random();
+          int rnd = random.Next(0,cant+1);
 
-        
-
-          return random;
+         return _preguntas[rnd];       
 
 
         }
+
+        public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
+
+          List<Respuestas> listaProximasRespuestas = new List<Respuestas>();
+
+          foreach (Respuestas res in _respuestas)
+          {
+            
+            if (res.IdPregunta == idPregunta)
+            {
+              listaProximasRespuestas.Add(res);
+            }
+
+          }
+
+           return listaProximasRespuestas;
+
+        }
+
+        public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
+
+          bool correct;
+
+          if ()
+          {
+            
+          }
+          
+
+
+
+        }
+
+
 
 
     }

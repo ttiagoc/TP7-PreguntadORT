@@ -61,41 +61,22 @@ using Dapper;
 
                     return _ListaPreguntas;
 
-
-                       /*
-                      if(IdDificultad != -1 && IdCategoria != -1){
-                      sql = "SELECT * FROM Preguntas WHERE IdDificultad = @IdDificultad AND IdCategoria = @IdCategoria";
-                      }else{
-                        if(IdDificultad == -1 && IdCategoria != -1){
-                             sql = "SELECT * FROM Preguntas WHERE IdCategoria = @IdCategoria";
-                        }else{
-                            if(IdDificultad != -1 && IdCategoria == -1){
-                                 sql = "SELECT * FROM Preguntas WHERE IdDificultad = @IdDificultad";
-                            }else{
-                                 sql = "SELECT * FROM Preguntas";
-                            }
-                        }
-                      }*/
-
                     }
 
 
                      
-                    /*
-                        
-                    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas){
+                   public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas){
 
-                        
+                     List<Respuestas> listaRespuestas = new List<Respuestas>();
 
+                     foreach(Preguntas preg in preguntas){
 
-
-
-
-
-
-
-
-                     }*/
-
+                          string SQL = "SELECT * FROM Respuestas WHERE IdPregunta = @pIdPregunta";
+                         using(SqlConnection db = new SqlConnection(_connectionString)){
+                         listaRespuestas.AddRange(db.Query<Respuestas>(SQL, new{pIdPregunta = preg}));
+                      }
+                }
+                          return listaRespuestas;
+        }
         }
     }
