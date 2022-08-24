@@ -83,14 +83,14 @@ using System.Web;
 
           int cont = 1;
 
-          while (_preguntas[rnd] == null  || cont == cant)
+          while (_preguntas[rnd] == null  || _preguntas[0] == null)
           {
             rnd = random.Next(0,cant+1);  
             cont++;
           }
 
 
-          if (cont != cant)
+          if (_preguntas[0] != null)
           {
               Preguntas aux = _preguntas[rnd];
           _preguntas.Remove(aux);
