@@ -81,8 +81,26 @@ using System.Web;
           Random random = new Random();
           int rnd = random.Next(0,cant+1);
 
-         return _preguntas[rnd];       
+          int cont = 1;
 
+          while (_preguntas[rnd] == null  || cont == cant)
+          {
+            rnd = random.Next(0,cant+1);  
+            cont++;
+          }
+
+
+          if (cont != cant)
+          {
+              Preguntas aux = _preguntas[rnd];
+          _preguntas.Remove(aux);
+          return _preguntas[rnd];   
+             
+          }else{
+            return null;
+          }
+         
+          // ??????
 
         }
 
