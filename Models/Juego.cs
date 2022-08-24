@@ -80,7 +80,7 @@ using System.Web;
           int cant = _preguntas.Count();
           Random random = new Random();
           int rnd = random.Next(0,cant+1);
-
+/*
           int cont = 1;
 
           while (_preguntas[rnd] == null  || _preguntas[0] == null)
@@ -89,12 +89,12 @@ using System.Web;
             cont++;
           }
 
-
+*/
           if (_preguntas[0] != null)
           {
-              Preguntas aux = _preguntas[rnd];
+           Preguntas aux = _preguntas[rnd];
           _preguntas.Remove(aux);
-          return _preguntas[rnd];   
+          return aux;   
              
           }else{
             return null;
@@ -123,20 +123,22 @@ using System.Web;
         }
 
         public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
-
-          bool correct;
-
-          if ()
-          {
             
-          }
-          
+            foreach(Respuestas resp in _respuestas){
+                if(resp.IdRespuesta == idRespuesta){
+                    if(resp.Correcta == true){
 
+                        _puntajeActual += 50;
+                        _cantidadPreguntasCorrectas++;                     
 
+                        return true;
+                    }
+                }
+            }
 
-        }
+            return false;            
 
-
+        }        
 
 
     }
