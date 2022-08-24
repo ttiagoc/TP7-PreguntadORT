@@ -53,8 +53,8 @@ using System.Web;
            _username = "";
           _puntajeActual = 0;
           _cantidadPreguntasCorrectas = 0;
-          _preguntas.Clear();
-          _respuestas.Clear();
+       //   _preguntas.Clear();
+         // _respuestas.Clear();
 
         }
 

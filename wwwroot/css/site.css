@@ -15,4 +15,14 @@ html {
 
 body {
   margin-bottom: 60px;
+
+  background-image: url(".jpg");
+  background-repeat:no-repeat;
+  background-position:center;
+ 
+}
+
+.abajo{
+  display: block;
+
 }
