@@ -32,8 +32,9 @@ public class HomeController : Controller
      public IActionResult ConfigurarJuego()
     {
         Juego.InicializarJuego();
-      //  ViewBag.Categorias = Juego.ObtenerCategorias();
-       // ViewBag.Dificultades = Juego.ObtenerDificultades();
+        
+        ViewBag.Categorias = Juego.ObtenerCategorias();
+        ViewBag.Dificultades = Juego.ObtenerDificultades();
 
 
         return View("ConfigurarJuego");
@@ -43,7 +44,7 @@ public class HomeController : Controller
 
         Juego.CargarPartida(username,dificultad,categoria);
 
-        return RedirectToAction("Jugar" , "Home", new {username = username, dificultad = dificultad, categoria = categoria});
+        return RedirectToAction("Jugar" , "Home"/*, new {username = username, dificultad = dificultad, categoria = categoria}*/);
     }
 
     public IActionResult Jugar(){

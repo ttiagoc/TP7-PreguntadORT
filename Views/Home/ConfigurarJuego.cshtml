@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Configurar Juego";
 }
-
+@*
 <form method="get" action='@Url.Action("Comenzar", "Home")' > 
     <div class="container mt-5 mb-5 d-flex justify-content-center ">
          <div class="card px-1 py-4">
@@ -29,6 +29,7 @@
                     <option>Intermedio</option>
                      <option>Dificil</option>
                  <option>Todas las preguntas</option>
+                 
                 </select>
             </div>
            </div>
@@ -56,3 +57,46 @@
                      </div>
                </div>
         </form>
+*@
+
+         <form action='@Url.Action("Comenzar", "Home")' method="get">
+        <div class="form-group row">
+            <label for="staticEmail" class="col-form-label text-center">Nombre de usuario: <span><br><input type="text" class="text-black ingresarNombre font h4" id="staticEmail" name="userName" placeholder=""></span></label>            
+                        
+        </div>
+
+        <div class="flex-container mt-5">
+            <div class="flex-item">
+                <p class="text-center">Dificultad</p>
+                @foreach(Dificultades dif in @ViewBag.Dificultades){
+                    
+                    <div class="form-check text-black">
+                        <label class="form-check-label" for="inlineRadio1"> @dif.Nombre </label>
+                        <input class="form-check-input" type="radio" name="Dificultades" required id="inlineRadio1" value="@dif.IdDificultad">
+                    </div>
+                }
+                <div class="form-check text-black">
+                    <label class="form-check-label" for="inlineRadio1"> Todas </label>
+                    <input class="form-check-input" type="radio" name="dificultad" id="inlineRadio1" value="-1">
+                </div>
+            </div>
+            
+            <div class="flex-item">
+                <p class="text-center">Categoria</p>
+                @foreach(Categorias cat in @ViewBag.Categorias){
+                    <div class="form-check text-black">
+                        <label class="form-check-label" for="inlineRadio1"> @cat.Nombre </label>
+                        <input class="form-check-input" type="radio" name="categoria" required id="inlineRadio1" value="@cat.IdCategoria">
+                    </div>
+                }
+                <div class="form-check text-black">
+                    <label class="form-check-label" for="inlineRadio1"> Todas </label>
+                    <input class="form-check-input" type="radio" name="categorias" id="inlineRadio1" value="-1">
+                </div>
+            </div>
+            
+        </div>
+
+        <input type="submit" value="Jugar" class="btn btn-success mt-5" style="">
+
+    </form>
