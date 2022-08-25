@@ -14,7 +14,7 @@ using Dapper;
              
             private static List <Preguntas> _ListaPreguntas = new List<Preguntas>();
             private static List <Respuestas> _ListaRespuestas = new List<Respuestas>();
-            private static string _connectionString = @"Server=A-PHZ2-CIDI-025;
+            private static string _connectionString = @"Server=A-PHZ2-AMI-008;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
 

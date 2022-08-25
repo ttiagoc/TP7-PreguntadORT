@@ -24,7 +24,7 @@ using System.Web;
 
 
 
-            public int IdCategoria{
+            public int IdDificultad{
                 
               get{return _idDificultad;}
               set{_idDificultad = value;}

@@ -1,3 +1,58 @@
 @{
     ViewData["Title"] = "Configurar Juego";
 }
+
+<form method="get" action='@Url.Action("Comenzar", "Home")' > 
+    <div class="container mt-5 mb-5 d-flex justify-content-center ">
+         <div class="card px-1 py-4">
+            <div class="card-body">
+                <h6 class="card-title mb-4 text-center h3">Configurar Juego</h6>
+                
+       
+                    
+                  
+
+            <div class="row mb-3">
+             <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="input-group"> <input class="form-control" autocomplete="off" type="text" required placeholder="Nombre de usuario" name="username"> </div>
+             </div>
+           </div>
+        </div>
+
+        
+    
+            <div class="row mb-3">
+                 <div class="col-sm-12">
+                 Elegir dificultad:  <select required selected="Elegir dificultad" name="Nombre">
+                    <option>Fácil</option>
+                    <option>Intermedio</option>
+                     <option>Dificil</option>
+                 <option>Todas las preguntas</option>
+                </select>
+            </div>
+           </div>
+
+
+             <div class="row mb-3">
+                 <div class="col-sm-12">
+                     Elegir categoría:  <select required selected="Elegir categoría" name="Nombre">
+                    <option>Máquinas y Ejercicios</option>
+                    <option>Músculos del cuerpo</option>
+                     <option>Fisico-Culturismo</option>
+                 <option>Todas las categorías</option>
+                </select>
+            </div>
+           </div>
+
+
+
+
+
+
+
+                     <input type="submit" value="Jugar" class="btn btn-primary" style="width: 300px;">
+                      <input type="reset" value="Restablecer" class="btn btn-danger"  style="width: 300px;">
+                     </div>
+               </div>
+        </form>

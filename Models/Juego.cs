@@ -53,9 +53,22 @@ using System.Web;
            _username = "";
           _puntajeActual = 0;
           _cantidadPreguntasCorrectas = 0;
-       //   _preguntas.Clear();
-         // _respuestas.Clear();
 
+          //vaciar listas a mano
+        /*
+          foreach (Preguntas preg in _preguntas)
+          {
+            _preguntas.Remove(preg);
+          }
+
+           foreach (Respuestas res in _respuestas)
+          {
+            _respuestas.Remove(res);
+          }
+
+         //  _preguntas.Clear();
+           //_respuestas.Clear();
+*/
         }
 
         public static List<Categorias> ObtenerCategorias(){
