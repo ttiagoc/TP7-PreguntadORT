@@ -15,9 +15,9 @@ using System.Web;
             private string _foto ="";
 
 
-            public Categorias (int pidCategoria, string pnombre, string pfoto){
+            public Categorias (string pnombre, string pfoto){
 
-                _idCategoria = pidCategoria;
+              
                 _nombre = pnombre;
                 _foto = pfoto;
 
@@ -26,6 +26,15 @@ using System.Web;
              }
 
 
+             public Categorias (){
+
+              
+                _nombre = "";
+                _foto = "";
+
+
+
+             }
 
             public int IdCategoria{
                 

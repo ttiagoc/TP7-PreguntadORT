@@ -53,10 +53,10 @@ using System.Web;
            _username = "";
           _puntajeActual = 0;
           _cantidadPreguntasCorrectas = 0;
-         /*  if(_preguntas[0] != null && _respuestas[0] != null){
-               _preguntas.Clear();
-                 _respuestas.Clear();
-            }*/
+        
+             //  _preguntas.Clear();
+               //  _respuestas.Clear();
+            
         }
 
         public static List<Categorias> ObtenerCategorias(){

@@ -18,9 +18,9 @@ using System.Web;
 
 
             
-            public Preguntas (int pidPregunta, int pidCategoria, int pidDificultad, string penunciado, string pfoto){
+            public Preguntas ( int pidCategoria, int pidDificultad, string penunciado, string pfoto){
 
-                _idPregunta = pidPregunta;
+              
                 _idCategoria = pidCategoria;
                 _idDificultad = pidDificultad;
                 _enunciado = penunciado;
@@ -29,6 +29,16 @@ using System.Web;
 
              }
 
+             public Preguntas (){
+
+              
+                _idCategoria = 0;
+                _idDificultad = 0;
+                _enunciado = "";
+                _foto = "";
+
+
+             }
 
 
 

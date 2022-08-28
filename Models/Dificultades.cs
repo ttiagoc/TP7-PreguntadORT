@@ -14,14 +14,19 @@ using System.Web;
             private string _nombre ="";
 
 
-            public Dificultades (int pidDificultad, string pnombre){
+            public Dificultades ( int pIdDificultad,string pnombre){
 
-                _idDificultad = pidDificultad;
+                _idDificultad = pIdDificultad;
                 _nombre = pnombre;
                 
              }
 
+            public Dificultades (){
 
+                _idDificultad = 0;
+                _nombre = "";
+                
+             }
 
 
             public int IdDificultad{
