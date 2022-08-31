@@ -18,7 +18,7 @@ using System.Web;
 
 
             
-            public Preguntas ( int pidCategoria, int pidDificultad, string penunciado, string pfoto){
+            public Preguntas (int pidCategoria, int pidDificultad, string penunciado, string pfoto){
 
               
                 _idCategoria = pidCategoria;

@@ -75,7 +75,7 @@ using Dapper;
 
                           string SQL = "SELECT * FROM Respuestas WHERE IdPregunta = @pIdPregunta";
                          using(SqlConnection db = new SqlConnection(_connectionString)){
-                         listaRespuestas.AddRange(db.Query<Respuestas>(SQL, new{pIdPregunta = preg}));
+                         listaRespuestas = db.Query<Respuestas>(SQL, new{pIdPregunta = preg}).ToList();
                       }
                 }
                           return listaRespuestas;

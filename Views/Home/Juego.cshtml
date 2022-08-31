@@ -1,3 +1,10 @@
     <h1>@ViewBag.Username</h1>
+    <h3>Puntaje actual: @ViewBag.Puntaje puntos</h3>
     <br>
-    <h1>@ViewBag.ContenidoPregunta.Enunciado</h1>
+    <h1>Pregunta: @ViewBag.ContenidoPregunta.Enunciado</h1>
+
+
+        @foreach (Respuestas res in ViewBag.ContenidoRespuesta)
+        {
+            <h1>@res.Contenido</h1>
+        }

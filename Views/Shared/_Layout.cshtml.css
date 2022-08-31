@@ -46,3 +46,10 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+nav{
+  background-image: url("/fondo.jpg");
+  background-repeat:no-repeat;
+  background-position:center;
+ 
+}

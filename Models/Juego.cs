@@ -10,8 +10,8 @@ using System.Web;
 
     public static class Juego{
 
-       private static string _username = "";
-       private static int _puntajeActual;
+       private static string _username = "NULL";
+       private static int _puntajeActual = 0;
        private static int _cantidadPreguntasCorrectas;
        private static List<Preguntas> _preguntas;
        private static List<Respuestas> _respuestas;
@@ -70,7 +70,7 @@ using System.Web;
         public static void CargarPartida(string username, int dificultad, int categoria){
 
          _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
-        // _respuestas = BD.ObtenerRespuestas(_preguntas);
+         _respuestas = BD.ObtenerRespuestas(_preguntas);
 
         }
 
@@ -85,7 +85,7 @@ using System.Web;
           if (_preguntas.Count() != 0)
           {
            Preguntas aux = _preguntas[rnd];
-          _preguntas.Remove(aux);
+         // _preguntas.Remove(aux);
           return aux;   
              
           }else{
@@ -109,7 +109,7 @@ using System.Web;
             }
 
           }
-
+           
            return listaProximasRespuestas;
 
         }
@@ -127,6 +127,15 @@ using System.Web;
                     }
                 }
             }
+
+
+           foreach(Preguntas preg in _preguntas){
+                if(preg.IdPregunta == idPregunta){
+                    int indicePreguntaContestada = _preguntas.IndexOf(preg);
+                    _preguntas.RemoveAt(indicePreguntaContestada);
+                }
+            }
+
 
             return false;            
 

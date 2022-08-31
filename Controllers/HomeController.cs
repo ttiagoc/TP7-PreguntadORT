@@ -55,18 +55,19 @@ public class HomeController : Controller
 
 
           ViewBag.ContenidoPregunta = pregunta;
-         // ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-             ViewBag.Username = Juego.Username;
+            ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+          //   ViewBag.Username = Juego.Username;
+             ViewBag.Puntaje = Juego.PuntajeActual;
             return View("Juego");
-      }else
+      }else 
       {
         return View("Fin");
       }
 
       [HttpPost] IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
 
-            bool Sicorrect = Juego.VerificarRespuesta(idPregunta,idRespuesta);
-            ViewBag.SiEsCorrecta = Sicorrect;
+          //  bool Sicorrect = Juego.VerificarRespuesta(idPregunta,idRespuesta);
+            //ViewBag.SiEsCorrecta = Sicorrect;
             
             return View("Respuesta");
 

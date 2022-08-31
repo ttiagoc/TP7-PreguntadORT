@@ -15,8 +15,7 @@ html {
 
 body {
   margin-bottom: 60px;
-
-  background-image: url(".jpg");
+  background-image: url("/fondo.jpg");
   background-repeat:no-repeat;
   background-position:center;
  
@@ -24,5 +23,12 @@ body {
 
 .abajo{
   display: block;
+
+}
+
+nav{
+  background-image: url("/fondo.jpg");
+  background-position:center;
+  background-attachment:fixed;
 
 }
