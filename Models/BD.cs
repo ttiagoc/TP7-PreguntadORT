@@ -12,8 +12,8 @@ using Dapper;
         public static class BD{
 
              
-            private static List <Preguntas> _ListaPreguntas = new List<Preguntas>();
-            private static List <Respuestas> _ListaRespuestas = new List<Respuestas>();
+            
+           
             private static string _connectionString = @"Server=DESKTOP-P8MR2F6\SQLEXPRESS;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
@@ -42,9 +42,12 @@ using Dapper;
             }
 
                     public static List <Preguntas> ObtenerPreguntas(int IdDificultad, int IdCategoria){
-
-                    using(SqlConnection db = new SqlConnection(_connectionString)){
                     
+                    List<Preguntas> _ListaPreguntas = new List<Preguntas>();
+                     string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pIdDificultad AND IdCategoria = @pIdCategoria";   
+                    
+                    using(SqlConnection db = new SqlConnection(_connectionString)){
+                     /*
                         string sql =  "SELECT * FROM Preguntas";
                         string connector = " where ";
                         if(IdDificultad != -1 ){
@@ -54,8 +57,8 @@ using Dapper;
                         if(IdCategoria != -1 ){
                              sql = sql + connector + "IdCategoria = @IdCategoria";
                         }
-
-                         _ListaPreguntas = db.Query<Preguntas>(sql).ToList();
+                         */
+                        _ListaPreguntas = db.Query<Preguntas>(sql, new{pIdDificultad = IdDificultad, pIdCategoria = IdCategoria}).ToList();
                     }
 
                     return _ListaPreguntas;

@@ -80,18 +80,9 @@ using System.Web;
 
           int cant = _preguntas.Count();
           Random random = new Random();
-          int rnd = random.Next(0,cant+1);
-/*
-          int cont = 1;
+          int rnd = random.Next(0,cant);
 
-          while (_preguntas[rnd] == null  || _preguntas[0] == null)
-          {
-            rnd = random.Next(0,cant+1);  
-            cont++;
-          }
-
-*/
-          if (_preguntas[0] != null)
+          if (_preguntas.Count() != 0)
           {
            Preguntas aux = _preguntas[rnd];
           _preguntas.Remove(aux);
@@ -100,9 +91,7 @@ using System.Web;
           }else{
             return null;
           }
-         
-          // ??????
-
+        
         }
 
         public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){

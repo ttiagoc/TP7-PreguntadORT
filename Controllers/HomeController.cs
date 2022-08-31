@@ -44,17 +44,18 @@ public class HomeController : Controller
 
         Juego.CargarPartida(username,dificultad,categoria);
 
-        return RedirectToAction("Jugar" , "Home"/*, new {username = username, dificultad = dificultad, categoria = categoria}*/);
+        return RedirectToAction("Jugar" , "Home");
     }
 
     public IActionResult Jugar(){
+        
       if(Juego.ObtenerProximaPregunta != null)
       {
             Preguntas pregunta = Juego.ObtenerProximaPregunta();
 
 
           ViewBag.ContenidoPregunta = pregunta;
-          ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+         // ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
       
             return View("Juego");
       }else
