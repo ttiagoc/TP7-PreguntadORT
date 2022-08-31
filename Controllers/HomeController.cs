@@ -43,12 +43,12 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria){
 
         Juego.CargarPartida(username,dificultad,categoria);
-
-        return RedirectToAction("Jugar" , "Home");
+        
+        return RedirectToAction("Jugar" , "Home" );
     }
 
     public IActionResult Jugar(){
-        
+       
       if(Juego.ObtenerProximaPregunta != null)
       {
             Preguntas pregunta = Juego.ObtenerProximaPregunta();
@@ -56,7 +56,7 @@ public class HomeController : Controller
 
           ViewBag.ContenidoPregunta = pregunta;
          // ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-      
+             ViewBag.Username = Juego.Username;
             return View("Juego");
       }else
       {

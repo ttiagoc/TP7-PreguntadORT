@@ -14,7 +14,7 @@ using Dapper;
              
             
            
-            private static string _connectionString = @"Server=DESKTOP-P8MR2F6\SQLEXPRESS;
+            private static string _connectionString = @"Server=A-PHZ2-CIDI-029;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
 
@@ -41,24 +41,24 @@ using Dapper;
 
             }
 
-                    public static List <Preguntas> ObtenerPreguntas(int IdDificultad, int IdCategoria){
+                    public static List <Preguntas> ObtenerPreguntas(int dificultad, int categoria){
                     
                     List<Preguntas> _ListaPreguntas = new List<Preguntas>();
-                     string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pIdDificultad AND IdCategoria = @pIdCategoria";   
+                    // string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pIdDificultad AND IdCategoria = @pIdCategoria";   
                     
                     using(SqlConnection db = new SqlConnection(_connectionString)){
-                     /*
+                     
                         string sql =  "SELECT * FROM Preguntas";
                         string connector = " where ";
-                        if(IdDificultad != -1 ){
-                             sql = sql + connector +  "IdDificultad = @IdDificultad";
+                        if(dificultad != -1 ){
+                             sql = sql + connector +  "IdDificultad = @pIdDificultad";
                              connector = " and ";
                         }
-                        if(IdCategoria != -1 ){
-                             sql = sql + connector + "IdCategoria = @IdCategoria";
+                        if(categoria != -1 ){
+                             sql = sql + connector + "IdCategoria = @pIdCategoria";
                         }
-                         */
-                        _ListaPreguntas = db.Query<Preguntas>(sql, new{pIdDificultad = IdDificultad, pIdCategoria = IdCategoria}).ToList();
+                         
+                        _ListaPreguntas = db.Query<Preguntas>(sql, new{pIdDificultad = dificultad, pIdCategoria = categoria}).ToList();
                     }
 
                     return _ListaPreguntas;
