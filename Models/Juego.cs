@@ -68,7 +68,7 @@ using System.Web;
         }
 
         public static void CargarPartida(string username, int dificultad, int categoria){
-
+          _username = username;
          _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
          _respuestas = BD.ObtenerRespuestas(_preguntas);
 

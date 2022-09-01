@@ -1,10 +1,23 @@
-    <h1>@ViewBag.Username</h1>
+     <h1>Jugador: @ViewBag.Username</h1>
     <h3>Puntaje actual: @ViewBag.Puntaje puntos</h3>
     <br>
     <h1>Pregunta: @ViewBag.ContenidoPregunta.Enunciado</h1>
 
 
-        @foreach (Respuestas res in ViewBag.ContenidoRespuesta)
-        {
-            <h1>@res.Contenido</h1>
-        }
+
+           
+   
+                
+            @*
+     
+          <div class="mt-5 mb-5" style="width: 90%; margin:auto;">
+        <div class="row g-3">
+            @foreach (Respuestas resp in @ViewBag.ContenidoRespuesta)
+            {         
+                <div class="col-6">
+                    <div class="answers"> <a href="https://youtube.com" @* href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = @ViewBag.Contenidopregunta.IdPregunta})'>  @resp.Contenido > </div>
+                </div>                             
+            }
+        </div>
+    </div>
+                *@      

@@ -1,14 +1,14 @@
 @{
     ViewData["Title"] = "Configurar Juego";
 }
-
+@*
 
          <form action='@Url.Action("Comenzar", "Home")' method="get">
        
         <div class="row mb-3">
             <div class="col-sm-12">
                 <div class="form-group">
-                  <input class="form-control" type="text" placeholder="nombre..." autocomplete="off"name="username" > </div>
+                  <input class="form-control" type="text" placeholder="nombre..." required autocomplete="off" name="username" > </div>
                 </div>
             </div>
 
@@ -47,3 +47,43 @@
         <input type="submit" value="Jugar" class="btn btn-success mt-5" style="">
 
     </form>
+        *@
+
+
+
+
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Configurar juego</h3>
+                        
+                        <form class="requires-validation" action='@Url.Action("Comenzar", "Home")' method="get">
+
+                            <div class="col-md-12 pt-2">
+                               <input  class="form-control" type="text" placeholder="Nombre de usuario" autocomplete="off" name="username" required>
+                              
+                               <div class="invalid-feedback">Username field cannot be blank!</div>
+                            </div>
+                         
+                            <div class="pt-5">
+                         
+                              @foreach(Dificultades dif in @ViewBag.Dificultades){
+                             <input type="radio" class="btn-check" name="dificultad" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-secondary" >@dif.Nombre</label>
+
+                               }
+                          </div>
+                  
+
+                            <div class="form-button mt-3 pt-2">
+                                <button id="submit" type="submit" class="btn btn-primary">Jugar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
