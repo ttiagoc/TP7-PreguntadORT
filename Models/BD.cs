@@ -14,7 +14,7 @@ using Dapper;
              
             
            
-            private static string _connectionString = @"Server=A-PHZ2-AMI-005;
+            private static string _connectionString = @"Server=DESKTOP-P8MR2F6\SQLEXPRESS;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
 
@@ -44,7 +44,7 @@ using Dapper;
                     public static List <Preguntas> ObtenerPreguntas(int dificultad, int categoria){
                     
                     List<Preguntas> _ListaPreguntas = new List<Preguntas>();
-                    // string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pIdDificultad AND IdCategoria = @pIdCategoria";   
+                   
                     
                     using(SqlConnection db = new SqlConnection(_connectionString)){
                      
@@ -66,7 +66,7 @@ using Dapper;
                     }
 
 
-                     
+                     /*
                    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas){
 
                      List<Respuestas> listaRespuestas = new List<Respuestas>();
@@ -80,5 +80,20 @@ using Dapper;
                 }
                           return listaRespuestas;
         }
+        */
+        
+        public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas){
+        
+            List<Respuestas> listaRespuestas = new List<Respuestas>();
+            
+            foreach(Preguntas preg in preguntas){
+                string SQL = "SELECT * FROM Respuestas WHERE IdPregunta = @pIdPregunta";
+                using(SqlConnection db = new SqlConnection(_connectionString)){
+                    listaRespuestas.AddRange(db.Query<Respuestas>(SQL, new{pIdPregunta = preg.IdPregunta}));
+                }
+            }
+            return listaRespuestas;
+        }
+        
         }
     }

@@ -10,11 +10,13 @@ using System.Web;
 
     public static class Juego{
 
-       private static string _username = "NULL";
+       private static string _username = "";
        private static int _puntajeActual = 0;
-       private static int _cantidadPreguntasCorrectas;
-       private static List<Preguntas> _preguntas;
-       private static List<Respuestas> _respuestas;
+       private static int _cantidadPreguntasCorrectas = 0;
+       private static List<Preguntas> _preguntas = new List<Preguntas>();
+       private static List<Respuestas> _respuestas = new List<Respuestas>();
+
+        private static List<Preguntas> _preguntasSinMezclar = new List<Preguntas>();
 
 
          public static string Username{
@@ -50,12 +52,11 @@ using System.Web;
 
         public static void InicializarJuego(){
 
-           _username = "";
-          _puntajeActual = 0;
-          _cantidadPreguntasCorrectas = 0;
-        
-             //  _preguntas.Clear();
-               //  _respuestas.Clear();
+             _username = "";
+             _puntajeActual = 0;
+             _cantidadPreguntasCorrectas = 0;
+             _preguntas.Clear();
+             _respuestas.Clear();
             
         }
 
@@ -66,7 +67,7 @@ using System.Web;
         public static List<Dificultades> ObtenerDificultades(){
           return BD.ObtenerDificultades();
         }
-
+        /*
         public static void CargarPartida(string username, int dificultad, int categoria){
           _username = username;
          _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
@@ -74,9 +75,28 @@ using System.Web;
 
         }
 
-         
+         */
 
-        public static Preguntas ObtenerProximaPregunta(){
+          public static void CargarPartida(string username, int dificultad, int categoria){
+
+            Random random = new Random();       
+            int rnd;
+                 
+            _preguntas = BD.ObtenerPreguntas(dificultad, categoria);
+            int cant = _preguntas.Count();
+
+            for(int i = 0; i < cant; i++){
+                rnd = random.Next(0,cant);
+                Preguntas temporal = _preguntas[rnd];
+                _preguntas[rnd] = _preguntas[i];
+                _preguntas[i] = temporal;         
+            }            
+            _respuestas = BD.ObtenerRespuestas(_preguntas);   
+            _username = username;
+
+        }
+
+/*        public static Preguntas ObtenerProximaPregunta(){
 
           int cant = _preguntas.Count();
           Random random = new Random();
@@ -92,9 +112,18 @@ using System.Web;
             return null;
           }
 
-          
-        
+          */
+
+           public static Preguntas ObtenerProximaPregunta(){            
+
+            if(_preguntas.Count() != 0){
+               return _preguntas[0];   
+            }
+                    
+              return null;
         }
+        
+        
 
         public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
 
@@ -116,32 +145,27 @@ using System.Web;
 
         public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
             
+              for(int i = 0; i < _preguntas.Count();i++){
+                if(_preguntas[i].IdPregunta == idPregunta){
+                    _preguntas.RemoveAt(i);
+                }
+            }
+                        
             foreach(Respuestas resp in _respuestas){
                 if(resp.IdRespuesta == idRespuesta){
                     if(resp.Correcta == true){
 
                         _puntajeActual += 50;
-                        _cantidadPreguntasCorrectas++;                     
+                        _cantidadPreguntasCorrectas++;                                         
 
                         return true;
-                    }
+                    }                    
                 }
             }
-
-
-           foreach(Preguntas preg in _preguntas){
-                if(preg.IdPregunta == idPregunta){
-                    int indicePreguntaContestada = _preguntas.IndexOf(preg);
-                    _preguntas.RemoveAt(indicePreguntaContestada);
-                }
-            }
-
-
+            
             return false;            
 
-        }        
-
-
+        }
     }
 
 

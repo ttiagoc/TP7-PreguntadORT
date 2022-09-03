@@ -47,41 +47,53 @@ public class HomeController : Controller
         return RedirectToAction("Jugar" , "Home" );
     }
 
-    public IActionResult Jugar(){
-       
-      if(Juego.ObtenerProximaPregunta != null)
-      {
-            Preguntas pregunta = Juego.ObtenerProximaPregunta();
-
-
-          ViewBag.ContenidoPregunta = pregunta;
-           // ViewBag.ContenidoRespuesta = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-             ViewBag.Username = Juego.Username;
-             ViewBag.Puntaje = Juego.PuntajeActual;
-            return View("Juego");
-      }else 
-      {
-        return View("Fin");
-      }
-
-      [HttpPost] IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
-
-           // bool Sicorrect = Juego.VerificarRespuesta(idPregunta,idRespuesta);
-            //ViewBag.SiEsCorrecta = Sicorrect;
+       public IActionResult Jugar(){  
+        Preguntas pregunta = Juego.ObtenerProximaPregunta(); 
+        if(pregunta != null){
+            List<Respuestas> resp = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+            ViewBag.ContenidoRespuesta = resp;
+            ViewBag.ContenidoPregunta = pregunta;
             
-            return View("Respuesta");
+            return View("Juego");
+        }
+        return View("Fin");
+    }
+      public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
 
+        Preguntas pregunta = Juego.ObtenerProximaPregunta(); 
+        List<Respuestas> resp = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
 
+        if(Juego.VerificarRespuesta(idPregunta, idRespuesta)){
+            ViewBag.RespuestaCorrecta = idRespuesta;
+            ViewBag.RespuestaIncorrecta = -1;
+            ViewBag.Resultado = "CORRECTO!";
+        }
+        else{
+            ViewBag.Resultado = "INCORRECTO!";
+            ViewBag.RespuestaIncorrecta = idRespuesta;
+            foreach(Respuestas respu in resp){
+                if(respu.Correcta == true){
+                    ViewBag.RespuestaCorrecta = respu.IdRespuesta;
+                }
             }
+        }
 
+        ViewBag.ContenidoRespuesta = resp;
+        ViewBag.ContenidoPregunta = pregunta;
+        ViewBag.FueRespondida = true;
 
-
-      }
-
-
-
-
-
+        
+        
+        return View("Respuesta");
     }
 
+
+
+      }
+
+
+
+
+
+    
 

@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Configurar Juego";
 }
-@*
+
 
          <form action='@Url.Action("Comenzar", "Home")' method="get">
        
@@ -47,10 +47,10 @@
         <input type="submit" value="Jugar" class="btn btn-success mt-5" style="">
 
     </form>
-        *@
+        
 
 
-
+@*
 
 
     <div class="form-body">
@@ -68,22 +68,61 @@
                                <div class="invalid-feedback">Username field cannot be blank!</div>
                             </div>
                          
-                            <div class="pt-5">
+                            <div class="pt-">
                          
-                              @foreach(Dificultades dif in @ViewBag.Dificultades){
-                             <input type="radio" class="btn-check" name="dificultad" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-secondary" >@dif.Nombre</label>
 
-                               }
+                                     <div class="col-md-12">
+                                <select class="form-select mt-3" required>
+                                     <option selected disabled >Dificultad</option>
+                              @foreach(Dificultades dif in @ViewBag.Dificultades){
+                                  
+                                     
+                                      <option value=@dif.IdDificultad name="dificultad">@dif.Nombre</option>
+                                      
+                               
+
+                              }
+
+                              </select>
+                                <div class="valid-feedback">You selected a position!</div>
+                                <div class="invalid-feedback">Please select a position!</div>
+                           </div>
                           </div>
-                  
+
+
+                              <div class="col-md-12">
+                                <select class="form-select mt-3" required>
+                                     <option selected disabled >Cateogoria</option>
+                              @foreach(Categorias cat in @ViewBag.Categorias){
+                                  
+                                     
+                                      <option value=@cat.IdCategoria name="categoria">@cat.Nombre</option>
+                                      
+                               
+
+
+                                        
+
+                              }
+
+                              </select>
+                                
+
+
+
+
 
                             <div class="form-button mt-3 pt-2">
+
                                 <button id="submit" type="submit" class="btn btn-primary">Jugar</button>
+                        
                             </div>
-                        </form>
+                        
+                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+*@
