@@ -81,7 +81,7 @@ public class HomeController : Controller
         ViewBag.ContenidoRespuesta = resp;
         ViewBag.ContenidoPregunta = pregunta;
         ViewBag.FueRespondida = true;
-
+        
         
         
         return View("Respuesta");

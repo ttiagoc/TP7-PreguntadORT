@@ -2,65 +2,15 @@
     ViewData["Title"] = "Configurar Juego";
 }
 
-
-         <form action='@Url.Action("Comenzar", "Home")' method="get">
-       
-        <div class="row mb-3">
-            <div class="col-sm-12">
-                <div class="form-group">
-                  <input class="form-control" type="text" placeholder="nombre..." required autocomplete="off" name="username" > </div>
-                </div>
-            </div>
-
-        <div class="flex-container mt-5">
-            <div class="flex-item">
-                <p class="">Dificultad</p>
-                @foreach(Dificultades dif in @ViewBag.Dificultades){
-                    
-                    <div class="form-check text-black">
-                        <label class="form-check-label" for="inlineRadio1"> @dif.Nombre </label>
-                        <input class="form-check-input" type="radio" name="dificultad" required id="inlineRadio1" value="@dif.IdDificultad">
-                    </div>
-                }
-                <div class="form-check text-black">
-                    <label class="form-check-label" for="inlineRadio1"> Todas </label>
-                    <input class="form-check-input" type="radio" name="dificultad" id="inlineRadio1" value="-1">
-                </div>
-            </div>
-            
-            <div class="flex-item">
-                <p class="pt-3">Categoria</p>
-                @foreach(Categorias cat in @ViewBag.Categorias){
-                    <div class="form-check text-black">
-                        <label class="form-check-label" for="inlineRadio1"> @cat.Nombre </label>
-                        <input class="form-check-input" type="radio" name="categoria" required id="inlineRadio1" value="@cat.IdCategoria">
-                    </div>
-                }
-                <div class="form-check text-black">
-                    <label class="form-check-label" for="inlineRadio1"> Todas </label>
-                    <input class="form-check-input" type="radio" name="categoria" id="inlineRadio1" value="-1">
-                </div>
-            </div>
-            
-        </div>
-
-        <input type="submit" value="Jugar" class="btn btn-success mt-5" style="">
-
-    </form>
         
-
-
-@*
-
-
-    <div class="form-body">
+    <div class="form-body ">
         <div class="row">
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
                         <h3>Configurar juego</h3>
                         
-                        <form class="requires-validation" action='@Url.Action("Comenzar", "Home")' method="get">
+                         <form class="requires-validation" action='@Url.Action("Comenzar", "Home")' method="get">
 
                             <div class="col-md-12 pt-2">
                                <input  class="form-control" type="text" placeholder="Nombre de usuario" autocomplete="off" name="username" required>
@@ -72,16 +22,17 @@
                          
 
                                      <div class="col-md-12">
-                                <select class="form-select mt-3" required>
+                                <select class="form-select mt-3" required name="dificultad">
                                      <option selected disabled >Dificultad</option>
                               @foreach(Dificultades dif in @ViewBag.Dificultades){
                                   
                                      
-                                      <option value=@dif.IdDificultad name="dificultad">@dif.Nombre</option>
+                                      <option value=@dif.IdDificultad >@dif.Nombre</option>
                                       
                                
 
-                              }
+                              } 
+                                    <option value = "-1">Todas</option>
 
                               </select>
                                 <div class="valid-feedback">You selected a position!</div>
@@ -91,25 +42,19 @@
 
 
                               <div class="col-md-12">
-                                <select class="form-select mt-3" required>
-                                     <option selected disabled >Cateogoria</option>
+                                <select class="form-select mt-3" required name="categoria">
+                                     <option selected disabled >Categoria</option>
                               @foreach(Categorias cat in @ViewBag.Categorias){
                                   
                                      
-                                      <option value=@cat.IdCategoria name="categoria">@cat.Nombre</option>
+                                      <option value=@cat.IdCategoria >@cat.Nombre</option>
                                       
                                
 
-
-                                        
-
                               }
-
+                                 <option value = "-1">Todas</option>
                               </select>
                                 
-
-
-
 
 
                             <div class="form-button mt-3 pt-2">
@@ -125,4 +70,3 @@
             </div>
         </div>
     </div>
-*@
