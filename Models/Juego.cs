@@ -10,7 +10,7 @@ using System.Web;
 
     public static class Juego{
 
-       private static string _username = "";
+       private static string _username = "null";
        private static int _puntajeActual = 0;
        private static int _cantidadPreguntasCorrectas = 0;
        private static List<Preguntas> _preguntas = new List<Preguntas>();

@@ -53,7 +53,8 @@ public class HomeController : Controller
             List<Respuestas> resp = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
             ViewBag.ContenidoRespuesta = resp;
             ViewBag.ContenidoPregunta = pregunta;
-            
+            ViewBag.user = Juego.Username;
+            ViewBag.Puntaje = Juego.PuntajeActual;
             return View("Juego");
         }
         return View("Fin");
