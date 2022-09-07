@@ -1,5 +1,5 @@
     
-    
+
     <div class="contenidoPreg">
     <div class="container">
     
@@ -28,17 +28,21 @@
 </div>
 *@
 
-
+  
+   <div class="col">
 
 <div class="quiz pt-4 text-center" id="quiz" data-toggle="buttons">
       @foreach (Respuestas resp in @ViewBag.ContenidoRespuesta)
             { 
-                
+                <div class="row pt-2">
            <a href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = @ViewBag.ContenidoPregunta.IdPregunta})'><label class="element-animation1 btn btn-lg btn-info btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> @resp.Contenido</label></a>
            
-       
+            </div>
 
            }
+           
+       
+     </div>
 </div>
 
 

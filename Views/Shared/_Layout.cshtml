@@ -25,7 +25,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href='@Url.Action("ConfigurarJuego", "Home")'>Jugar</a>
                         </li>
+
+                       
                     </ul>
+
+                     @if (@Juego.Username != "")
+                        {
+
+                            
+                                <p class="">User: @Juego.Username/</p>
+                                
+                                <p class=""> Puntaje: @Juego.PuntajeActual</p>
+                            
+                        }    
+
                 </div>
             </div>
         </nav>

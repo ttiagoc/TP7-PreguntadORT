@@ -18,7 +18,7 @@ body {
   background-image: url("/fndo.jpg");
   background-repeat:no-repeat;
   background-position:center;
-  background-color: darkgray; 
+  background-color: rgb(167,211,243); 
 
 }
 
@@ -32,7 +32,7 @@ nav{
   background-position:center;
   background-attachment:fixed;
 
-  background-color: purple ;
+  background-color: rgb(100,211,243); 
 }
 
 
@@ -128,18 +128,22 @@ margin-top: 16px;
   border-radius: 10px;
 }
 
-.mx{
-  max-width: 30px;
+@font-face {
+  font-family: fuente1;
+  src: url('/Tipografia.ttf') format('truetype');
 }
 
+h1{
+  font-family: fuente1;
+}
 
+.tx{
+  text-decoration: none;
+}
 
-
-
-
-
-
-
+.blanco{
+  color: white;
+}
 
 
 
