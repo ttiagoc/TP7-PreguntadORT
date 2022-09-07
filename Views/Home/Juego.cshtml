@@ -1,21 +1,44 @@
     
-    <div class="container border">
-    <h1>Jugador: @ViewBag.user</h1>
-    <h3>Puntaje actual: @ViewBag.Puntaje puntos</h3>
-    <br>
-    <h1>Pregunta: @ViewBag.ContenidoPregunta.Enunciado</h1>
-    <img src=@ViewBag.ContenidoPregunta.Foto>
-         
-    <br>
+    
+    <div class="contenidoPreg">
+    <div class="container">
+    
+    <h1 class="text-center ">@ViewBag.ContenidoPregunta.Enunciado</h1>
+    @if (ViewBag.ContenidoPregunta.Foto != null)
+    {
+        
+    
+    <div class="text-center">
+    <img class="pt-3 redondeado" src=@ViewBag.ContenidoPregunta.Foto height="350px" width="auto">
+         </div> 
+    
+    }
 
 
-
-
-
-
+@*
   @foreach (Respuestas resp in @ViewBag.ContenidoRespuesta)
             { 
                 
                 <a class="answers" href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = @ViewBag.ContenidoPregunta.IdPregunta})'> @resp.Contenido </a>
                 <br>
             }
+
+
+            
+</div>
+*@
+
+
+
+<div class="quiz pt-4 text-center" id="quiz" data-toggle="buttons">
+      @foreach (Respuestas resp in @ViewBag.ContenidoRespuesta)
+            { 
+                
+           <a href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = @ViewBag.ContenidoPregunta.IdPregunta})'><label class="element-animation1 btn btn-lg btn-info btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> @resp.Contenido</label></a>
+           
+       
+
+           }
+</div>
+
+

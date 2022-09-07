@@ -14,7 +14,7 @@ using Dapper;
              
             
            
-            private static string _connectionString = @"Server=DESKTOP-P8MR2F6\SQLEXPRESS;
+            private static string _connectionString = @"Server=A-PHZ2-CIDI-029;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
 
