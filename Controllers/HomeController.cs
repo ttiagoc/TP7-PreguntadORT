@@ -57,6 +57,12 @@ public class HomeController : Controller
             ViewBag.Puntaje = Juego.PuntajeActual;
             return View("Juego");
         }
+
+        DateTime fechaActual = new DateTime();
+        fechaActual = DateTime.Today;
+        Puntajes punt = new Puntajes(fechaActual,Juego.Username,Juego.PuntajeActual);
+        Juego.AgregarAPuntajes(punt);
+        ViewBag.Puntajes = Juego.ObtenerPuntajes();
         return View("Fin");
     }
       public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
@@ -87,6 +93,11 @@ public class HomeController : Controller
         
         return View("Respuesta");
     }
+
+         public IActionResult HighScores(){
+            return View("HighScores");
+         }
+       
 
 
 

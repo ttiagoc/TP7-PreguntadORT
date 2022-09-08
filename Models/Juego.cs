@@ -166,6 +166,16 @@ using System.Web;
             return false;            
 
         }
+
+        public static void AgregarAPuntajes(Puntajes punt){
+          BD.AgregarPuntaje(punt);
+        }
+
+
+        public static List<Puntajes> ObtenerPuntajes(){
+          return BD.ObtenerPuntajes();
+        }
+
     }
 
 

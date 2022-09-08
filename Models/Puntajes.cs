@@ -39,11 +39,31 @@ using System.Web;
 
              }
 
+                 public int IdPuntaje{
+                   get{return _idPuntaje;}
+              set{_idPuntaje = value;}
+            }
+
+
+
             public string Username{
                    get{return _username;}
               set{_username = value;}
             }
 
+
+            public DateTime Fecha{
+                get{return _fecha;}
+                set{_fecha = value;}
+            }
+
+              public int Puntaje{
+                get{return _puntaje;}
+                set{_puntaje = value;}
+            }
+
+
+            
 
           }
 

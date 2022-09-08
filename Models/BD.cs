@@ -95,5 +95,35 @@ using Dapper;
             return listaRespuestas;
         }
         
+        public static void AgregarPuntaje(Puntajes punt){
+
+              string SQL = "INSERT INTO Puntajes(fecha,username,puntaje) VALUES (@pfecha, @pusername, @ppuntaje)";
+
+                using(SqlConnection db = new SqlConnection(_connectionString)){
+                    db.Execute(SQL, new {pfecha = punt.Fecha, pusername = punt.Username, ppuntaje = punt.Puntaje} );
+                }
+
+                  
+
+            }
+
+
+
+             public static List <Puntajes> ObtenerPuntajes(){
+                     List <Puntajes> _ListaPuntajes = new List<Puntajes>();
+                    using(SqlConnection db = new SqlConnection(_connectionString)){
+                      string sql = "SELECT * FROM Puntajes";
+                     _ListaPuntajes = db.Query<Puntajes>(sql).ToList();
+                    }
+
+                    return _ListaPuntajes;
+
+            }
+
+
+
+
+
+
         }
     }

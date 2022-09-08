@@ -1,0 +1,10 @@
+
+<h1 class="text-center pt-4">TABLA DE PUNTAJES</h1>
+
+
+@foreach (Puntajes punt in @ViewBag.Puntaje)
+{
+    @punt.Fecha
+    @punt.Username
+    @punt.Puntaje
+}
