@@ -1,7 +1,24 @@
 
 
-           
-               <h1> @ViewBag.Resultado </h1>
+               @if (@ViewBag.Resultado == "CORRECTO!")
+               {
+                         <div class="container text-center">
+                      <h1 class="correcta text-center pt-2 pb-5 "> ¡FELICITACIONES, RESPUESTA CORRECTA! </h1>
+
+                         <iframe src="https://giphy.com/embed/26DOoDwdNGKAg6UKI" width="480" height="384" frameBorder="0"  allowFullScreen></iframe><p></p>
+                         </div>
+
+               }else{
+                     <div class="container text-center">
+                     <h1 class="incorrecta text-center pt-2 pb-5"> LO LAMENTO, RESPUESTA INCORRECTA </h1>
+                     <iframe src="https://giphy.com/embed/MbXKzbvQOgRZ6" width="480" height="388" frameBorder="0"  allowFullScreen></iframe><p></p>
+                     </div>
+               }
+             
                 <br >
+                <br >
+             
                 
-           <button class="btn btn-success">  <a class="button text-center pt-5 tx blanco" style="text-decoration:none;" href='@Url.Action("Jugar", "Home")'>Siguiente pregunta</a> </button>
+
+
+        <center>   <button class="btn-lg btn-success">  <a class="button text-center pt-5 tx blanco" style="text-decoration:none;" href='@Url.Action("Jugar", "Home")'>Siguiente pregunta</a> </button></center>
