@@ -19,7 +19,15 @@ body {
   background-repeat:no-repeat;
   background-position:center;
   background-color: rgb(167,211,243); 
+  font-family: sans-serif;
 
+}
+
+footer{
+    font-family: cursive;
+}
+header{
+    font-family: cursive;
 }
 
 .abajo{
@@ -137,6 +145,15 @@ h1{
   font-family: fuente1;
 }
 
+h4{
+    font-family: fuente1;
+}
+h2{
+    font-family: fuente1;
+}
+
+
+
 .tx{
   text-decoration: none;
 }
@@ -172,7 +189,12 @@ h1{
    }
   
 
-
+   .rotar:hover {
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;}
+  
 
 
 

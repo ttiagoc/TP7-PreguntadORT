@@ -1,5 +1,12 @@
-FIN!!
+@{
+    ViewData["Title"] = "Fin";
+}
 
-Puntaje final: @Juego.PuntajeActual
-<br>
- <a  class="btn btn-primary" href='@Url.Action("ConfigurarJuego","Home")'> Volver a jugar </a>
+
+<h1 class="text-center pt-2">FIN DEL JUEGO</h1>
+
+<h2 class="text-center pt-2">Puntaje final: @Juego.PuntajeActual </h2>
+
+<div class="text-center pt-5">
+ <a class="btn btn-info" href='@Url.Action("ConfigurarJuego","Home")'> Volver a jugar </a>
+ </div>
