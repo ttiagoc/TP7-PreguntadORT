@@ -14,7 +14,7 @@ using Dapper;
              
             
            
-            private static string _connectionString = @"Server=A-PHZ2-AMI-018;
+            private static string _connectionString = @"Server=DESKTOP-P8MR2F6\SQLEXPRESS;
                   DataBase=PreguntadOrt;Trusted_Connection=True;";
 
 
@@ -112,7 +112,7 @@ using Dapper;
              public static List <Puntajes> ObtenerPuntajes(){
                      List <Puntajes> _ListaPuntajes = new List<Puntajes>();
                     using(SqlConnection db = new SqlConnection(_connectionString)){
-                      string sql = "SELECT * FROM Puntajes";
+                      string sql = "select * from Puntajes order by puntaje desc, fecha";
                      _ListaPuntajes = db.Query<Puntajes>(sql).ToList();
                     }
 

@@ -1,10 +1,32 @@
 
-<h1 class="text-center pt-4">TABLA DE PUNTAJES</h1>
+<h1 class="text-center pt-4 pb-4">TABLA DE PUNTAJES</h1>
 
+<div clas="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Puntaje</th>
+            <th>Fecha y Hora</th>
 
-@foreach (Puntajes punt in @ViewBag.Puntaje)
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            
+   
+@foreach (Puntajes punt in @ViewBag.Puntajes)
 {
-    @punt.Fecha
-    @punt.Username
-    @punt.Puntaje
+    
+     <tr>
+     
+      <td> @punt.Username </td>
+      <td> @punt.Puntaje </td>
+      <td> @punt.Fecha </td>
+    </tr>
+   
 }
+
+        </tbody>
+    </table>
+</div>

@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+          ViewBag.Puntaje = Juego.ObtenerPuntajesC();
         return View();
     }
 
@@ -35,7 +36,7 @@ public class HomeController : Controller
         
         ViewBag.Categorias = Juego.ObtenerCategorias();
         ViewBag.Dificultades = Juego.ObtenerDificultades();
-
+         
 
         return View("ConfigurarJuego");
     }
@@ -54,7 +55,7 @@ public class HomeController : Controller
             ViewBag.ContenidoRespuesta = resp;
             ViewBag.ContenidoPregunta = pregunta;
             ViewBag.user = Juego.Username;
-            ViewBag.Puntaje = Juego.PuntajeActual;
+            
             return View("Juego");
         }
 
@@ -62,7 +63,7 @@ public class HomeController : Controller
         fechaActual = DateTime.Today;
         Puntajes punt = new Puntajes(fechaActual,Juego.Username,Juego.PuntajeActual);
         Juego.AgregarAPuntajes(punt);
-        ViewBag.Puntajes = Juego.ObtenerPuntajes();
+       
         return View("Fin");
     }
       public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
@@ -94,12 +95,13 @@ public class HomeController : Controller
         return View("Respuesta");
     }
 
-         public IActionResult HighScores(){
-            return View("HighScores");
-         }
+     
        
 
-
+         public IActionResult HighScores(){
+            ViewBag.Puntajes = Juego.ObtenerPuntajesC();
+            return View();
+         }
 
       }
 

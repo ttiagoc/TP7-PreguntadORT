@@ -172,7 +172,7 @@ using System.Web;
         }
 
 
-        public static List<Puntajes> ObtenerPuntajes(){
+        public static List<Puntajes> ObtenerPuntajesC(){
           return BD.ObtenerPuntajes();
         }
 
