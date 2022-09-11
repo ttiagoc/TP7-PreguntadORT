@@ -2,11 +2,15 @@
     ViewData["Title"] = "Fin";
 }
 
-
+<div class="container">
 <h1 class="text-center pt-2">FIN DEL JUEGO</h1>
-
-<h2 class="text-center pt-2">Puntaje final: @Juego.PuntajeActual </h2>
+<div class="text-center">
+<iframe src="https://giphy.com/embed/RMklVlF2EKWk3C6DEj" width="480" height="480" frameBorder="0" class="pt-4" allowFullScreen></iframe>
+</div>
+<h2 class="text-center pt-4">Puntaje final: @Juego.PuntajeActual </h2>
 
 <div class="text-center pt-5">
- <a class="btn btn-info" href='@Url.Action("ConfigurarJuego","Home")'> Volver a jugar </a>
+ <a class="btn-lg btn-success" href='@Url.Action("ConfigurarJuego","Home")'> Volver a jugar </a>
+    
+  <a class="btn-lg btn-info" href='@Url.Action("HighScores","Home")'> HighScores </a>
  </div>

@@ -20,10 +20,11 @@
                          
                             <div class="pt-">
                          
-
                                      <div class="col-md-12">
-                                <select class="form-select mt-3" required name="dificultad">
-                                     <option selected disabled >Dificultad</option>
+                                         
+                                <select class="form-select" required name="dificultad">
+                                    <option selected disabled hidden>Dificultad</option> 
+                                   
                               @foreach(Dificultades dif in @ViewBag.Dificultades){
                                   
                                      
@@ -43,7 +44,7 @@
 
                               <div class="col-md-12">
                                 <select class="form-select mt-3" required name="categoria">
-                                     <option selected disabled >Categoria</option>
+                                     <option selected disabled hidden>Categoria</option>
                               @foreach(Categorias cat in @ViewBag.Categorias){
                                   
                                      
@@ -58,7 +59,7 @@
 
 
                             <div class="form-button mt-3 pt-2">
-
+                                
                                 <button id="submit" type="submit" class="btn btn-success">Jugar</button>
                         
                             </div>

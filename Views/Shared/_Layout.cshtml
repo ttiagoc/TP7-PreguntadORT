@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TP7_PreguntadORT.styles.css" asp-append-version="true" />
-    <link rel="shortcut icon" href="/iconosf.png">
+    <link rel="shortcut icon" href="/icono1.png">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-purple border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/iconosf2.png" height = "125px" width="auto"></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="zoom" src="/icono2.png" height = "125px" width="auto"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,26 +21,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark zoom h5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href='@Url.Action("ConfigurarJuego", "Home")'>Jugar</a>
+                            <a class="nav-link text-dark zoom h5" href='@Url.Action("ConfigurarJuego", "Home")'>Jugar</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href='@Url.Action("HighScores", "Home")'>HighScores</a>
+                            <a class="nav-link text-dark zoom h5" href='@Url.Action("HighScores", "Home")'>HighScores</a>
                         </li>
                        
                     </ul>
 
-                     @if (@Juego.Username != "")
+                     @if (@Juego.Username != "null")
                         {
 
                             
-                                <p class="">User: @Juego.Username/</p>
+                                <p class="h5">User: @Juego.Username/</p>
                                 
-                                <p class=""> Puntaje: @Juego.PuntajeActual</p>
-                            
+                                <p class="h5"> Puntaje: @Juego.PuntajeActual</p>
+                               
                         }    
 
                 </div>

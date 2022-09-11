@@ -87,9 +87,9 @@ transition: all 0.4s ease;
 .form-content h3 {
 color: #fff;
 text-align: left;
-font-size: 28px;
+font-size: 45px;
 font-weight: 600;
-margin-bottom: 5px;
+margin-bottom: 5    px;
 }
 
 .form-content h3.form-title {
@@ -99,10 +99,10 @@ margin-bottom: 30px;
 .form-content p {
 color: #fff;
 text-align: left;
-font-size: 17px;
+font-size: 25px;
 font-weight: 300;
-line-height: 20px;
-margin-bottom: 30px;
+line-height: 30px;
+margin-bottom: 40px;
 }
 
 

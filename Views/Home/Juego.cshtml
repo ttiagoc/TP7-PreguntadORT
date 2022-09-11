@@ -4,14 +4,15 @@
     <div class="container">
     
     <h1 class="text-center">@ViewBag.ContenidoPregunta.Enunciado</h1>
-    @if (@ViewBag.ContenidoPregunta.Foto != null)
-    {
+    
         
     <div class="text-center pt-3 pb-3">
+      @if (@ViewBag.ContenidoPregunta.Foto != null){
     <img class="pt-3 redondeado zoom redondeado" src=@ViewBag.ContenidoPregunta.Foto height="350px" width="auto">
+      }
          </div> 
     
-    }
+    
 
 
   

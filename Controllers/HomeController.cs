@@ -72,23 +72,22 @@ public class HomeController : Controller
         List<Respuestas> resp = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
 
         if(Juego.VerificarRespuesta(idPregunta, idRespuesta)){
-            ViewBag.RespuestaCorrecta = idRespuesta;
-            ViewBag.RespuestaIncorrecta = -1;
+            
             ViewBag.Resultado = "CORRECTO!";
         }
         else{
             ViewBag.Resultado = "INCORRECTO!";
-            ViewBag.RespuestaIncorrecta = idRespuesta;
-            foreach(Respuestas respu in resp){
-                if(respu.Correcta == true){
-                    ViewBag.RespuestaCorrecta = respu.IdRespuesta;
+          
+                    foreach(Respuestas respu in resp){
+                if(respu.Correcta != false){
+                    ViewBag.RespuestaCorrecta = respu.Contenido;
                 }
             }
         }
 
         ViewBag.ContenidoRespuesta = resp;
         ViewBag.ContenidoPregunta = pregunta;
-        ViewBag.FueRespondida = true;
+        
         
         
         
