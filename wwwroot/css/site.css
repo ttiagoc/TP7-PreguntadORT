@@ -196,12 +196,20 @@ h2{
     transform-style: preserve-3d;}
   
 
+    .saturado:hover {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
 
+    .saturado{
+        transition: transform .7s ease-in-out;
+    }
 
+    .table{
+       
+        border: #1b6ec2 7px solid;
+    }
 
-
-
-
+   .color{
+     color: #1b6ec2;
+   }
 
 
 

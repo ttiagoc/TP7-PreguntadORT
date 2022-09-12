@@ -65,7 +65,7 @@ public class HomeController : Controller
 
        
         DateTime fechaActual = new DateTime();
-        fechaActual = DateTime.Today;
+        fechaActual = DateTime.Now;
         Puntajes punt = new Puntajes(fechaActual,Juego.Username,Juego.PuntajeActual,Juego.Segundos);
         Juego.AgregarAPuntajes(punt);
         ViewBag.TiempoFinal = Juego.Segundos;
