@@ -2,7 +2,7 @@
 
     <div class="contenidoPreg">
     <div class="container">
-    
+    <h3 class="text-center">Tiempo: @ViewBag.Segundos segundos</h1>
     <h1 class="text-center">@ViewBag.ContenidoPregunta.Enunciado</h1>
     
         
@@ -21,7 +21,7 @@
 <div class="quiz pt-4 text-center" id="quiz" data-toggle="buttons">
       @foreach (Respuestas resp in @ViewBag.ContenidoRespuesta)
             { 
-                <div class="row pt-2">
+                <div class="row-sm pt-2">
            <a href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = @ViewBag.ContenidoPregunta.IdPregunta})'><label class="element-animation1 btn btn-lg btn-info btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> @resp.Contenido</label></a>
            
             </div>

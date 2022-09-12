@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Diagnostics;
+using System.Timers;
+using System.Dynamic;
+using Microsoft.VisualBasic.CompilerServices;
 
   namespace TP7_PreguntadORT.Models
 
@@ -17,6 +20,10 @@ using System.Web;
        private static List<Respuestas> _respuestas = new List<Respuestas>();
 
         private static List<Preguntas> _preguntasSinMezclar = new List<Preguntas>();
+
+
+        private static System.Timers.Timer _reloj;        
+        private static int _segundos = 0;
 
 
          public static string Username{
@@ -50,6 +57,13 @@ using System.Web;
             }
 
 
+
+    
+        public static int Segundos{
+            get{
+                return _segundos;
+            }
+        }
         public static void InicializarJuego(){
 
              _username = "";
@@ -57,6 +71,7 @@ using System.Web;
              _cantidadPreguntasCorrectas = 0;
              _preguntas.Clear();
              _respuestas.Clear();
+             _segundos = 0;
             
         }
 
@@ -67,16 +82,8 @@ using System.Web;
         public static List<Dificultades> ObtenerDificultades(){
           return BD.ObtenerDificultades();
         }
-        /*
-        public static void CargarPartida(string username, int dificultad, int categoria){
-          _username = username;
-         _preguntas = BD.ObtenerPreguntas(dificultad,categoria);
-         _respuestas = BD.ObtenerRespuestas(_preguntas);
-
-        }
-
-         */
-
+        
+        
           public static void CargarPartida(string username, int dificultad, int categoria){
 
             Random random = new Random();       
@@ -96,23 +103,7 @@ using System.Web;
 
         }
 
-/*        public static Preguntas ObtenerProximaPregunta(){
 
-          int cant = _preguntas.Count();
-          Random random = new Random();
-          int rnd = random.Next(0,cant);
-
-          if (_preguntas.Count() != 0)
-          {
-           Preguntas aux = _preguntas[rnd];
-         // _preguntas.Remove(aux);
-          return aux;   
-             
-          }else{
-            return null;
-          }
-
-          */
 
            public static Preguntas ObtenerProximaPregunta(){            
 
@@ -176,6 +167,28 @@ using System.Web;
           return BD.ObtenerPuntajes();
         }
 
+
+
+
+        public static void FinalizarTimer(){
+            _reloj.Stop();
+            _reloj.Dispose();
+         
+        }
+
+        public static void ComenzarTimer()
+        {                   
+            _reloj = new System.Timers.Timer(1000);
+            // Definimos el evento que se dispara al finalizar cada intervalo de tiempo 
+            _reloj.Elapsed += Tick;
+            _reloj.AutoReset = true;
+            _reloj.Enabled = true;
+        }        
+
+        public static void Tick(Object source, ElapsedEventArgs e)
+        {
+            _segundos++;            
+        }   
     }
 
 

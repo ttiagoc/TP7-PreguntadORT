@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP7_PreguntadORT.Models;
+using System.Timers;
+using System.Collections.Generic;
 
 namespace TP7_PreguntadORT.Controllers;
 
@@ -44,26 +46,29 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria){
 
         Juego.CargarPartida(username,dificultad,categoria);
-        
+           Juego.ComenzarTimer(); 
         return RedirectToAction("Jugar" , "Home" );
     }
 
        public IActionResult Jugar(){  
+      
         Preguntas pregunta = Juego.ObtenerProximaPregunta(); 
         if(pregunta != null){
             List<Respuestas> resp = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
             ViewBag.ContenidoRespuesta = resp;
             ViewBag.ContenidoPregunta = pregunta;
             ViewBag.user = Juego.Username;
+            ViewBag.Segundos = Juego.Segundos;
             
             return View("Juego");
         }
 
+       
         DateTime fechaActual = new DateTime();
         fechaActual = DateTime.Today;
-        Puntajes punt = new Puntajes(fechaActual,Juego.Username,Juego.PuntajeActual);
+        Puntajes punt = new Puntajes(fechaActual,Juego.Username,Juego.PuntajeActual,Juego.Segundos);
         Juego.AgregarAPuntajes(punt);
-       
+        ViewBag.TiempoFinal = Juego.Segundos;
         return View("Fin");
     }
       public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){

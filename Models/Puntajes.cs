@@ -17,13 +17,14 @@ using System.Web;
 
             private DateTime _fecha = new DateTime();
 
-             public Puntajes (DateTime pfecha, string pusername, int ppuntaje){
+            private int _segundos = 0;
+             public Puntajes (DateTime pfecha, string pusername, int ppuntaje, int psegundos){
 
               
                 _fecha = pfecha;
                 _username = pusername;
                 _puntaje = ppuntaje;
-
+                _segundos = psegundos;
 
 
              }
@@ -62,6 +63,10 @@ using System.Web;
                 set{_puntaje = value;}
             }
 
+            public int Segundos{
+                   get{return _segundos;}
+              set{_segundos = value;}
+            }
 
             
 

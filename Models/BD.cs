@@ -97,10 +97,10 @@ using Dapper;
         
         public static void AgregarPuntaje(Puntajes punt){
 
-              string SQL = "INSERT INTO Puntajes(fecha,username,puntaje) VALUES (@pfecha, @pusername, @ppuntaje)";
+              string SQL = "INSERT INTO Puntajes(fecha,username,puntaje,segundos) VALUES (@pfecha, @pusername, @ppuntaje, @psegundos)";
 
                 using(SqlConnection db = new SqlConnection(_connectionString)){
-                    db.Execute(SQL, new {pfecha = punt.Fecha, pusername = punt.Username, ppuntaje = punt.Puntaje} );
+                    db.Execute(SQL, new {pfecha = punt.Fecha, pusername = punt.Username, ppuntaje = punt.Puntaje, psegundos = punt.Segundos} );
                 }
 
                   
@@ -112,7 +112,7 @@ using Dapper;
              public static List <Puntajes> ObtenerPuntajes(){
                      List <Puntajes> _ListaPuntajes = new List<Puntajes>();
                     using(SqlConnection db = new SqlConnection(_connectionString)){
-                      string sql = "select * from Puntajes order by puntaje desc, fecha";
+                      string sql = "select * from Puntajes order by puntaje desc, segundos";
                      _ListaPuntajes = db.Query<Puntajes>(sql).ToList();
                     }
 

@@ -59,3 +59,12 @@
       }; 
   });	
   
+
+
+  setInterval(function () {    
+
+   
+        $("#segundos").html(parseInt($("#segundos").html())+1);  
+    
+    
+},1000);
