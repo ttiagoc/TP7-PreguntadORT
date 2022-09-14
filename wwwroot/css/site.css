@@ -6,6 +6,18 @@ html {
   html {
     font-size: 16px;
   }
+
+  form{
+    max-width: 100%;
+  }
+
+  .form-body{
+    max-width: 100%;
+  }
+
+  .form-holder{
+    max-width: 100%;
+  }
 }
 
 html {
@@ -211,9 +223,13 @@ h2{
      color: #1b6ec2;
    }
 
+   img{
+    max-width: 100%;
+   }
 
-
-
+   iframe{
+    max-width: 100%;
+   }
 
 
 

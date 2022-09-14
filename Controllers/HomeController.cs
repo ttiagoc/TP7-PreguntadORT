@@ -46,6 +46,7 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria){
 
         Juego.CargarPartida(username,dificultad,categoria);
+         
            Juego.ComenzarTimer(); 
         return RedirectToAction("Jugar" , "Home" );
     }
