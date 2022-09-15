@@ -37,3 +37,44 @@
     
  
  </div>
+
+
+<div class="wrapper">
+  
+  
+  <div class="table">
+    
+    <div class="row header blue">
+      <div class="cell">
+        Username
+      </div>
+      <div class="cell">
+        Puntaje
+      </div>
+      <div class="cell">
+        Fecha y Hora
+      </div>
+      <div class="cell">
+        Tiempo
+      </div>
+    </div>
+    @foreach (Puntajes punt in @ViewBag.Puntajes)
+{
+     <div class="row">
+     <tr>
+     
+       <div class="cell">@punt.Username
+        </div>
+      <div class="cell">@punt.Puntaje
+        </div>
+       <div class="cell"> @punt.Fecha
+        </div>
+      <div class="cell"> @punt.Segundos Segundos
+    </div>
+   </div>
+}
+    
+    
+  </div>
+  
+</div>

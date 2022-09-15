@@ -2,7 +2,7 @@
     ViewData["Title"] = "Configurar Juego";
 }
 
-        
+       
     <div class="form-body ">
         <div class="row">
             <div class="form-holder">
@@ -17,13 +17,13 @@
                               
                                <div class="invalid-feedback">Username field cannot be blank!</div>
                             </div>
-                         
+                            
                             <div class="pt-">
                          
                                      <div class="col-md-12">
-                                         
+                                       
                                 <select class="form-select" required name="dificultad">
-                                    <option selected disabled hidden>Dificultad</option> 
+                                  <option selected disabled value="" hidden>Dificultad</option> 
                                    
                               @foreach(Dificultades dif in @ViewBag.Dificultades){
                                   
@@ -44,7 +44,7 @@
 
                               <div class="col-md-12">
                                 <select class="form-select mt-3" required name="categoria">
-                                     <option selected disabled hidden>Categoria</option>
+                                     <option selected disabled value="" hidden>Categoria</option>
                               @foreach(Categorias cat in @ViewBag.Categorias){
                                   
                                      
@@ -71,3 +71,6 @@
             </div>
         </div>
     </div>
+
+
+
