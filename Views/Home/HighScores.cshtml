@@ -1,80 +1,52 @@
 
 <h1 class="text-center pt-4 pb-4">TABLA DE PUNTAJES</h1>
 
-<div clas="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>Username</th>
-            <th>Puntaje</th>
-            <th>Fecha y Hora</th>
-            <th>Tiempo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            
+
+
+<section class="intro">
+  <div class="bg-image h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #002d72;">
+                      <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Puntaje</th>
+                        <th scope="col">Fecha y Hora</th>
+                        <th scope="col">Tiempo</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                       @foreach (Puntajes punt in @ViewBag.Puntajes)
+                        {
+                          <tr>
+                             <td>@punt.Username</td>
+                              <td>@punt.Puntaje</td>
+                               <td>@punt.Fecha</td>
+                                <td>@punt.Segundos</td>
+                           
    
-@foreach (Puntajes punt in @ViewBag.Puntajes)
-{
-    
-     <tr>
-     
-      <td> @punt.Username </td>
-      <td> @punt.Puntaje </td>
-      <td> @punt.Fecha </td>
-      <td> @punt.Segundos Segundos</td>
-    </tr>
-   
+                          </tr>
 }
 
-        </tbody>
-    </table>
-</div>
-
-<div class="text-center pt-5 mb-3">
- <a class="btn-lg btn-success" href='@Url.Action("ConfigurarJuego","Home")'> Volver a jugar </a>
-    
- 
- </div>
 
 
-<div class="wrapper">
-  
-  
-  <div class="table">
-    
-    <div class="row header blue">
-      <div class="cell">
-        Username
-      </div>
-      <div class="cell">
-        Puntaje
-      </div>
-      <div class="cell">
-        Fecha y Hora
-      </div>
-      <div class="cell">
-        Tiempo
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    @foreach (Puntajes punt in @ViewBag.Puntajes)
-{
-     <div class="row">
-     <tr>
-     
-       <div class="cell">@punt.Username
-        </div>
-      <div class="cell">@punt.Puntaje
-        </div>
-       <div class="cell"> @punt.Fecha
-        </div>
-      <div class="cell"> @punt.Segundos Segundos
-    </div>
-   </div>
-}
-    
-    
   </div>
-  
-</div>
+</section>
